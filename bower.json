@@ -1,0 +1,21 @@
+{
+  "name": "angular_foundation_skeleton",
+  "description": "A combination of Angular and the grid from foundation framework.",
+  "main": "js/app.js",
+  "authors": [
+    "Carter Wooten"
+  ],
+  "license": "MIT",
+  "moduleType": [
+    "es6"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
