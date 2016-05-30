@@ -1,5 +1,5 @@
 {
-  "name": "angular_foundation_skeleton",
+  "name": "angular2_foundation_skeleton",
   "version": "1.0.0",
   "description": "A combination of Angular and the grid from foundation framework.",
   "main": "js/app.js",
