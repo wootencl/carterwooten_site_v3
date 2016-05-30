@@ -1,2 +1,4 @@
 node_modules
 bower_components
+app/public/js/bundle.js
+app/public/js/vendor/

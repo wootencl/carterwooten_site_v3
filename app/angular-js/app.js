@@ -18,7 +18,7 @@ import {Greeter} from './services';
 })
 export class Hello {
   constructor(greeter: Greeter) {
-    this.message = greeter.say('hello', 'Angular 2');
+    this.message = greeter.say('hello', 'Angular2');
   }
 }
 
