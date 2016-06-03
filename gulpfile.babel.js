@@ -21,6 +21,8 @@ import cleanCSS from 'gulp-clean-css';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
 import order from 'gulp-order';
+import ng2TemplateParser from 'gulp-inline-ng2-template/parser';
+import through from 'through2';
 
 //Project Paths:
 var basePath = {
@@ -104,7 +106,14 @@ gulp.task('html', function() {
 //client-app TASKS
 gulp.task('angular-build', function() {
   const brfy = browserify(basePath.src + 'client-app/index.js', { debug: true })
-    .transform(babelify);
+    .transform(babelify)
+    .transform(function (file) {
+      return through(function (buf, enc, next){
+        var result = ng2TemplateParser({contents: buf, path: file}, {target: 'es5'});
+        this.push(result);
+        next();
+      });
+    });
   return bundle(brfy, false);
 });
 
