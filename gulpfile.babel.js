@@ -101,15 +101,15 @@ gulp.task('html', function() {
     .pipe(livereload());
 });
 
-//ANGULAR-JS TASKS
+//client-app TASKS
 gulp.task('angular-build', function() {
-  const brfy = browserify(basePath.src + 'angular-js/index.js', { debug: true })
+  const brfy = browserify(basePath.src + 'client-app/index.js', { debug: true })
     .transform(babelify);
   return bundle(brfy, false);
 });
 
 gulp.task('angular-watch', function() {
-  const brfy = browserify(basePath.src + 'angular-js/index.js', assign({ debug: true }, watchify.args ))
+  const brfy = browserify(basePath.src + 'client-app/index.js', assign({ debug: true }, watchify.args ))
     .transform(babelify);
   const wfy = watchify(brfy)
     .on('update', () => bundle(wfy, true))

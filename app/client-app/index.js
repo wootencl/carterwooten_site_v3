@@ -6,7 +6,7 @@ import {bootstrap} from '@angular/platform-browser-dynamic';
 import {ROUTER_PROVIDERS} from '@angular/router';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
-import {HelloApp} from './app';
+import {HelloApp} from './app.component';
 
 bootstrap(HelloApp, [
   ROUTER_PROVIDERS,
