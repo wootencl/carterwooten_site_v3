@@ -4,7 +4,7 @@ import {Greeter} from '../shared/index';
 
 @Component({
   selector: 'hello',
-  template: '<p>{{ message }}</p>'
+  templateUrl: './hello.component.html'
 })
 export class Hello {
   constructor(greeter: Greeter) {
