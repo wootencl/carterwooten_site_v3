@@ -19,14 +19,8 @@ import {Linker} from './+linker/index';
   selector: 'hello-app',
   viewProviders: [Greeter],
   directives: [ROUTER_DIRECTIVES, Linker],
-  template: `
-    <ul>
-      <li><a [routerLink]="['/']">Hello</a></li>
-      <li><a [routerLink]="['/ciao', 'ng2']">Ciao</a></li>
-    </ul>
-    <router-outlet></router-outlet>
-    <linker name="GitHub" url="https://github.com/shuhei/babel-angular2-app"></linker>
-  `
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 @Routes([
   new Route({ path: '/', component: Hello }),

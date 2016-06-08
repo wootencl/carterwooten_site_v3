@@ -1,7 +1,6 @@
 'use strict';
 
 import gulp from 'gulp';
-import sass from'gulp-sass';
 import jshint from 'gulp-jshint';
 import gutil from 'gulp-util';
 import plumber from 'gulp-plumber';
@@ -20,10 +19,7 @@ import gulpif from 'gulp-if';
 import cleanCSS from 'gulp-clean-css';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
-import order from 'gulp-order';
-import ng2TemplateParser from 'gulp-inline-ng2-template/parser';
-import through from 'through2';
-import debug from 'gulp-debug';
+import ng2Inlinify from './ng2Inlinify';
 
 //Project Paths:
 var basePath = {
@@ -64,19 +60,13 @@ function bundle(brfy, lr) {
     .pipe(gulpif(lr, livereload()));
 }
 
-// ### DEVELOPMENT ###
 
-//SASS TASK
-gulp.task('sass', function() {
-  return gulp.src(basePath.src + '/scss/**/*.scss')
-    .pipe(sourcemaps.init())
-    .pipe(plumber({
-      errorHandler: onError
-    }))
-    .pipe(sass())
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(srcPublic.styles));
+gulp.task('ng2', () => {
+  gulp.src('./app/client-app/**/*.js')
+    .pipe(inlineNg2Template({base: '/app/client-app', useRelativePaths: true}))
+    .pipe(gulp.dest('./app/client-app'));
 });
+// ### DEVELOPMENT ###
 
 //JS
 gulp.task('jshint', function() {
@@ -108,20 +98,22 @@ gulp.task('html', function() {
 gulp.task('angular-build', function() {
   const brfy = browserify(basePath.src + 'client-app/index.js', { debug: true })
     .transform(babelify)
-    .transform(function (file) {
-      return through(function (buf, enc, next){
-        ng2TemplateParser({contents: buf, path: file}, {target: 'es5'})(result => {
-          this.push(result);
-          next();
-        });
-      });
-    });
+    .transform(ng2Inlinify);
   return bundle(brfy, false);
+});
+
+gulp.task('angular-build-lr', function() {
+  const brfy = browserify(basePath.src + 'client-app/index.js', { debug: true })
+    .transform(babelify)
+    .transform(ng2Inlinify);
+  return bundle(brfy, true);
 });
 
 gulp.task('angular-watch', function() {
   const brfy = browserify(basePath.src + 'client-app/index.js', assign({ debug: true }, watchify.args ))
-    .transform(babelify);
+    .transform(babelify)
+    //inline template/css
+    .transform(ng2Inlinify);
   const wfy = watchify(brfy)
     .on('update', () => bundle(wfy, true))
     .on('log', gutil.log);
@@ -131,7 +123,7 @@ gulp.task('angular-watch', function() {
 //WATCH TASK
 gulp.task('watch', function() {
   //SCSS
-  gulp.watch([basePath.src + 'scss/**/*.scss'], ['sass']);
+  gulp.watch([basePath.src + '/client-app/**/*.scss'], ['angular-build-lr']);
 
   //JS
   gulp.watch([srcPublic.scripts + '**/*.js'], ['jshint']);

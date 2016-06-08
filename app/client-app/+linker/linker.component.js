@@ -6,7 +6,7 @@ import {
 
 @Component({
   selector: 'linker',
-  template: '<p><a [href]="url" [title]="name">{{ name }}</a></p>'
+  templateUrl: './linker.component.html'
 })
 export class Linker {
   @Input() url;
