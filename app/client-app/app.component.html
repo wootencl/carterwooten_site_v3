@@ -1,6 +1,8 @@
-<ul>
-  <li><a [routerLink]="['/']">Hello</a></li>
-  <li><a [routerLink]="['/ciao', 'ng2']">Ciao</a></li>
-</ul>
+<navbar (mobileNavToggle)="stateChange()"></navbar>
+<div @offScreenMenu="state" id="offScreenMenu">
+	  <div><a [routerLink]="['/']" routerLinkActive="router-link-active" (click)="stateChange()">Home</a></div>
+	  <div><a [routerLink]="['/About']" routerLinkActive="router-link-active" (click)="stateChange()">About</a></div>
+	  <div><a [routerLink]="['/Work']" routerLinkActive="router-link-active" (click)="stateChange()">Work</a></div>
+	  <div><a [routerLink]="['/Contact']" routerLinkActive="router-link-active" (click)="stateChange()">Contact</a></div>
+</div>
 <router-outlet></router-outlet>
-<linker name="GitHub" url="https://github.com/shuhei/babel-angular2-app"></linker>

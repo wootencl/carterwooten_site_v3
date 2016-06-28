@@ -20,6 +20,7 @@ import cleanCSS from 'gulp-clean-css';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
 import ng2Inlinify from './ng2Inlinify';
+import sass from 'gulp-sass';
 
 //Project Paths:
 var basePath = {
@@ -85,12 +86,16 @@ gulp.task('css', function() {
     .pipe(livereload());
 });
 
-//HTML TASK
-gulp.task('html', function() {
-  return gulp.src(basePath.src + 'public/**/*.html')
+//SCSS TASK
+gulp.task('sass', function() {
+  return gulp.src(basePath.src+'/scss/**/*.scss')
+    .pipe(sourcemaps.init())
     .pipe(plumber({
       errorHandler: onError
     }))
+    .pipe(sass())
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest(srcPublic.styles))
     .pipe(livereload());
 });
 
@@ -122,9 +127,9 @@ gulp.task('angular-watch', function() {
 
 //WATCH TASK
 gulp.task('watch', function() {
-  //SCSS
+  //NG2 SCSS
   gulp.watch([basePath.src + '/client-app/**/*.scss'], ['angular-build-lr']);
-
+  
   //JS
   gulp.watch([srcPublic.scripts + '**/*.js'], ['jshint']);
 
@@ -132,7 +137,7 @@ gulp.task('watch', function() {
   gulp.watch([srcPublic.styles + '**/*.css'], ['css']);
 
   //HTML
-  gulp.watch([basePath.src + 'public/**/*.html'], ['html']);
+  gulp.watch([basePath.src + '/client-app/**/*.html'], ['angular-build-lr']);
 });
 
 //SERVER TASK

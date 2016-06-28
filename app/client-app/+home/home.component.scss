@@ -1,0 +1,37 @@
+:host {
+	padding-top: 4rem;
+	height: 100%;
+	display: block;
+	background-image: url('images/home_cityscape_bg3.jpg');
+	background-size: cover;
+	background-position: bottom;
+	color: #FFF;
+	.row, .columns {
+		height: 100%;
+	}
+	#kiss_parent {
+	  -webkit-transform-style: preserve-3d;
+	  -moz-transform-style: preserve-3d;
+	  transform-style: preserve-3d;
+	}
+	#kiss {
+		// font-family: 'Roboto Condensed', sans-serif;
+		font-family: 'Arvo', serif;
+		#kiss_first {
+			display: inline-block;
+			text-align: center;
+			font-weight: 700;
+		}
+		#kiss_remaining {
+			display: inline-block;
+		}
+		//text-transform: uppercase;
+		font-size: 4.25em;
+		margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+	}
+}

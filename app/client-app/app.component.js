@@ -1,30 +1,67 @@
 import {
   Component,
   Input,
-  Attribute
+  Attribute,
+  HostBinding,
+  OnInit,
+  OnDestroy,
+  trigger,
+  state,
+  style,
+  transition,
+  animate
 } from '@angular/core';
 import {
-  Routes,
-  Route,
-  ROUTER_PROVIDERS,
-  ROUTER_DIRECTIVES
+  Router,
+  ActivatedRoute,
+  ROUTER_DIRECTIVES,
+  NavigationEnd
 } from '@angular/router';
+import { Location } from '@angular/common';
+
 
 import {Greeter} from './shared/index';
-import {Hello} from './+hello/index';
-import {Ciao} from './+ciao/index';
-import {Linker} from './+linker/index';
+import {NavBar} from './+navbar/index';
 
 @Component({
-  selector: 'hello-app',
+  selector: 'app',
   viewProviders: [Greeter],
-  directives: [ROUTER_DIRECTIVES, Linker],
+  directives: [ROUTER_DIRECTIVES, NavBar],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('offScreenMenu', [
+      state('inactive', style({
+        opacity: 0,
+        zIndex: -10
+      })),
+      state('active',   style({
+        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+        zIndex: 10
+      })),
+      transition('inactive => active', animate('250ms ease-in')),
+      transition('active => inactive', animate('250ms ease-out'))
+    ])
+  ]
 })
-@Routes([
-  new Route({ path: '/', component: Hello }),
-  new Route({ path: '/ciao/:name', component: Ciao })
-])
-export class HelloApp {
+export class App implements OnInit, OnDestroy {
+  @HostBinding('class.home') isHome = false;
+  constructor(router: Router, route: ActivatedRoute) {
+    this.router = router;
+    this.state = 'inactive';
+  }
+
+  ngOnInit() {
+    this.sub = this.router.events.subscribe(e => {
+      if (e instanceof NavigationEnd) {
+        this.isHome = e.url === '/';
+      }
+    });
+  }
+  ngOnDestroy() {
+      this.sub.unsubscribe();
+  }
+  stateChange() {
+    this.state = (this.state === 'active' ? 'inactive' : 'active');
+  }
 }
