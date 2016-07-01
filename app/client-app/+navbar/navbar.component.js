@@ -21,10 +21,14 @@ export class NavBar {
 	@Output() mobileNavToggle = new EventEmitter();
 
 	constructor() {
-		this.state = 'inactive';
+		// this.mobileHamburgerToggled = false;
 	}
-	toggleMobileNav() {
-		$('#mobileNavHamburger').toggleClass('open');
+	toggleMobileNavEvent() {
 		this.mobileNavToggle.emit();
+		// this.toggleMobileNavBurger();
 	}
+	toggleMobileNavBurger() {
+		$('#mobileNavHamburger').toggleClass('open');
+	}
+
 }

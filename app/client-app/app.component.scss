@@ -9,7 +9,6 @@ app {
 	width: 100%;
 	div {
 		border-bottom-style: solid;
-		border-top-style: solid;
     text-align: center;
     font-size: 2.5em;
     color: #000;
@@ -22,6 +21,9 @@ app {
 	    width: 100%;
 	    display: block;
     }
+	}
+	div:nth-child(1) {
+		border-top-style: solid;
 	}
 }
 
