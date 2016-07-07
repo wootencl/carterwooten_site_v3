@@ -12,7 +12,7 @@ import {
   styleUrls: ['./home.component.scss'],
   animations: [
     trigger('kissState', [
-      state('in', style({opacity: 0})),
+      state('in', style({opacity: 1})),
       transition('void => *', [
         style({opacity: 0}),
         animate('250ms ease-in-out')
