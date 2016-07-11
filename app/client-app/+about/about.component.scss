@@ -1,7 +1,33 @@
 #content {
 	display: block;
 	padding-top: 4rem;
-	padding-bottom: 5em;
+	padding-bottom: 6em;
 	height: auto;
 	min-height: 100%;
+	#intro {
+		height: auto;
+		font-family: 'Arvo', serif;
+		#super {
+	    text-align: center;
+	    font-size: 2em;
+	    line-height: 1.5em;
+		}
+		#sub {
+	    margin-top: 0.5em;
+	    font-family: 'Arvo', serif;
+	    text-align: center;
+	    line-height: 1.5em;
+		}
+	}
+	#skills {
+		font-size: 1.4em;
+    font-weight: 600;
+    padding: 0.25em 0em;
+    margin: 0.75em 0em;
+    text-align: center;
+    letter-spacing: 0.05em;
+    border-top: 1px solid rgba(49, 49, 49, 0.1);
+    border-bottom: 1px solid rgba(49, 49, 49, 0.1);
+    text-transform: uppercase;
+	}
 }

@@ -1,6 +1,19 @@
 <div id="content">
 	<div class="row">
-		<div class="small-12 columns">This is the about page</div>
+		<div class="small-12 columns">
+			<div id="intro">
+				<div id="super">
+					Hi, I'm Carter Wooten, a<br> freelance software developer located<br> in Charleston, SC
+				</div>
+				<div id="sub">
+					I currently do contract software development work for several different companies in the Charleston area. This is placeholder text till I can come up with how to finish this.
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="skills">Skills</div>
+	<div class=row>
+		<div *ngFor="let skill of skills"><skill [skillName]="skill.skillName" [iconUrl]="skill.iconUrl" [description]="skill.description"></skill></div>
 	</div>
 </div>
 <footer></footer>

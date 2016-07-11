@@ -12,7 +12,6 @@
 
 :host {
 	position: absolute;
-	height: 100%;
 	width: 100%;
 	.row {
 		max-width: 100%;
@@ -152,10 +151,6 @@
 		  -o-transform: translate(8px,4px) rotate(-45deg);
 		  transform: translate(8px,4px) rotate(-45deg);
 		}
-	}
-	#offScreenMenu {
-		height: 100%;
-		width: 100%;
 	}
 
 	/* MOBILE */
