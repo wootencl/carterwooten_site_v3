@@ -48,6 +48,7 @@ import {NavBar} from './+navbar/index';
 export class App implements OnInit, OnDestroy {
   @ViewChild(NavBar) navBar = NavBar;
   @HostBinding('class.home') isHome = false;
+  @HostBinding('class.mobileNavOpen') mobileNavOpen = false;
 
   constructor(router: Router, route: ActivatedRoute) {
     this.router = router;
@@ -65,11 +66,12 @@ export class App implements OnInit, OnDestroy {
       this.sub.unsubscribe();
   }
   stateChange() {
-    // this.state = (this.state === 'active' ? 'inactive' : 'active');
     if (this.state === 'active') {
+      this.mobileNavOpen = false;
       this.state = 'inactive';
       this.navBar.toggleMobileNavBurger();
     } else {
+      this.mobileNavOpen = true;
       this.state = 'active';
       this.navBar.toggleMobileNavBurger();
     }

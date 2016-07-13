@@ -11,7 +11,6 @@ html, body, app {
 		font-size: 0.9em;
 	}
 	:not(.home) > navbar {
-		position: fixed !important;
 		background-color: #FFF;
 	}
 }
@@ -25,9 +24,4 @@ html, body, app {
 
 /* LARGE SCREENS */
 @media (min-width:1025px) {
-	/* FIXME: Temporary fix for the grid framework on large devices.*/
-	/* Believe it has something to with my use of margins in the 'skills' */
-	.large-6 {
-		width: 49.5%;
-	}
 }

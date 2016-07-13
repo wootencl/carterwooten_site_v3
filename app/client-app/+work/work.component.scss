@@ -1,7 +1,20 @@
+.row {
+	max-width: 100% !important;
+}
 #content {
 	display: block;
 	padding-top: 4rem;
-	padding-bottom: 5em;
+	padding-bottom: 8em;
 	height: auto;
 	min-height: 100%;
+	#intro {
+		height: auto;
+		font-family: 'Arvo', serif;
+		padding-bottom: 2em;
+		#super {
+	    text-align: center;
+	    font-size: 2em;
+	    line-height: 1.5em;
+		}
+	}
 }

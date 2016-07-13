@@ -1,0 +1,47 @@
+#site {
+  border: 1px solid rgb(49, 49, 49);
+  height: 20em;
+  background-size: cover;
+  #siteInfoWrapper {
+    text-decoration: none;
+    display: block;
+    padding: 5em 0em;
+    height: 20em;
+    color: #FFF;
+    opacity: 0;
+    background:rgba(49, 49, 49,.75);
+    -webkit-transition: opacity .3s ease;
+    -moz-transition: opacity .3s ease;
+    transition: opacity .3s ease;
+
+    #title {
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    #divider {
+      margin: 1em auto;
+      background: #FFF;
+      width: 50px;
+      height: 1px;
+    }
+    #description {
+      text-align: center;
+      padding: 0em 2em;
+    }
+  }
+  &:hover #siteInfoWrapper {
+    opacity:1;
+  }
+}
+
+.columns {
+  padding: 0;
+}
+
+/* MOBILE */
+// @media (min-width:320px) {
+//   #siteInfoWrapper {
+//     opacity: 1 !important;
+//   }
+// }

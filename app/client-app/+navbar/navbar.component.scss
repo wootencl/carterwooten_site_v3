@@ -11,7 +11,8 @@
 }
 
 :host {
-	position: absolute;
+	z-index: 10;
+	position: fixed;
 	width: 100%;
 	.row {
 		max-width: 100%;

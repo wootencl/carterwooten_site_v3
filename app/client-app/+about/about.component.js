@@ -29,14 +29,14 @@ export class About {
 				my speciality. I immerse myself everyday in fringe technologies to \
 				ensure I can always create the latest and greatest applications."
 			});
-		// UI/UX
+		// Full Stack Developer
 		this.skills.push(
 			{
-				skillName: 'UI/UX Design',
-				iconUrl: 'images/design.png',
-				description: "Going along with my belief in the KISS principle \
-				of development I think that at the heart of any great design \
-				is simplicity."
+				skillName: 'Full Stack Developer',
+				iconUrl: 'images/fullstack.png',
+				description: "I've had contracts where I've had to work with one technology \
+				or another, but as I've also had to build many of my project from the ground \
+				up I have experience with every layer of the development stack."
 			});
 		// Prototyping
 		this.skills.push(
@@ -46,6 +46,23 @@ export class About {
 				description: "I believe a well thought out prototype can save \
 				potential employers and myself a large amount of time in the long\
 				run."
+			});
+		// UI/UX
+		this.skills.push(
+			{
+				skillName: 'UI/UX Design',
+				iconUrl: 'images/uiux.jpg',
+				description: "Going along with my belief in the KISS principle \
+				of development I think that at the heart of any great design \
+				is simplicity."
+			});
+		// Web Applications
+		this.skills.push(
+			{
+				skillName: 'Web Applications',
+				iconUrl: 'images/webapp.png',
+				description: "My current passion is developing with front-end frameworks to \
+				create complex web applications. This very website is built the Angular 2 framework."
 			});
 	}
 }
