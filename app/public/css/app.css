@@ -5,6 +5,7 @@ html, body, app {
 	font-family: 'Open Sans', sans-serif;
 }
 
+/* ### MEDIA QUERIES ### */
 /* MOBILE */
 @media (min-width:320px) {
 	html, body, app {
@@ -20,8 +21,23 @@ html, body, app {
 	html, body, app {
 		font-size: 1em;
 	}
+	/* WORK */
+	#siteInfoWrapper {
+    opacity:1;
+  }
 }
 
 /* LARGE SCREENS */
-@media (min-width:1025px) {
+@media (min-width:950px) {
+	/* WORK */
+	#site #siteInfoWrapper {
+	  opacity: 0;
+
+	  -webkit-transition: opacity .3s ease;
+    -moz-transition: opacity .3s ease;
+    transition: opacity .3s ease;
+	}
+	#site:hover #siteInfoWrapper {
+	  opacity: 1;
+	}
 }

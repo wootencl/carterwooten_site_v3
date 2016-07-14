@@ -160,7 +160,7 @@ gulp.task('development', ['server', 'watch', 'angular-watch']);
 
 //IMAGE MINIFICATION
 gulp.task('minify-images', function() {
-  return gulp.src(srcPublic.images)
+  return gulp.src(srcPublic.images+'*')
     .pipe(newer(destPublic.images))
     .pipe(imagemin())
     .pipe(gulp.dest(destPublic.images));
@@ -197,8 +197,11 @@ gulp.task('copy', function() {
   gulp.src(basePath.src + 'server.js')
     .pipe(gulp.dest(basePath.dest));
 
-  gulp.src(basePath.src + 'serverObjects/*.js')
-    .pipe(gulp.dest(basePath.dest + 'serverObjects/'));
+  gulp.src(basePath.src + 'routes.js')
+    .pipe(gulp.dest(basePath.dest));
+
+  // gulp.src(basePath.src + 'serverObjects/*.js')
+  //   .pipe(gulp.dest(basePath.dest + 'serverObjects/'));
 });
 
 gulp.task('production', ['minify-images', 'minify-css', 'minify-js', 'copy']);

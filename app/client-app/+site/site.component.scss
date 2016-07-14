@@ -8,11 +8,7 @@
     padding: 5em 0em;
     height: 20em;
     color: #FFF;
-    opacity: 0;
     background:rgba(49, 49, 49,.75);
-    -webkit-transition: opacity .3s ease;
-    -moz-transition: opacity .3s ease;
-    transition: opacity .3s ease;
 
     #title {
       text-align: center;
@@ -30,18 +26,8 @@
       padding: 0em 2em;
     }
   }
-  &:hover #siteInfoWrapper {
-    opacity:1;
-  }
 }
 
 .columns {
   padding: 0;
 }
-
-/* MOBILE */
-// @media (min-width:320px) {
-//   #siteInfoWrapper {
-//     opacity: 1 !important;
-//   }
-// }
