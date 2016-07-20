@@ -23,8 +23,8 @@ export class About {
 				skillName: 'Responsive Web Design',
 				iconUrl: 'images/responsive.jpg',
 				delay: 300,
-				description: "Through my personal and porfessional experience \
-				I've designed several responsive websites. I have found that a \
+				description: "Through my personal and professional experience \
+				I've designed many responsive websites. I have found that a \
 				highly adaptable site can mean the success or failure of a project."
 			});
 		// R&D
@@ -54,7 +54,7 @@ export class About {
 				iconUrl: 'images/prototype.png',
 				delay: 1200,
 				description: "I believe a well thought out prototype can save \
-				potential employers and myself a large amount of time in the long\
+				my clients and myself a large amount of time in the long\
 				run."
 			});
 		// UI/UX
@@ -74,7 +74,7 @@ export class About {
 				iconUrl: 'images/webapp.png',
 				delay: 1800,
 				description: "My current passion is developing with front-end frameworks to \
-				create complex web applications. This very website is built the Angular 2 framework."
+				create complex web applications. This portfolio website is built with the Angular 2 framework."
 			});
 	}
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Footer } from '../+footer/index';
+import { ContactMessage } from './contact_message.js';
 
 @Component({
   selector: 'contact',
