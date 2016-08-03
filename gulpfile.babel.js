@@ -21,6 +21,7 @@ import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
 import ng2Inlinify from './ng2Inlinify';
 import sass from 'gulp-sass';
+import del from 'del';
 
 //Project Paths:
 var basePath = {
@@ -119,7 +120,7 @@ gulp.task('angular-watch', function() {
     .transform(babelify)
     //inline template/css
     .transform(ng2Inlinify);
-  const wfy = watchify(brfy)
+  const wfy = watchify(brfy, {poll: true, ignoreWatch: true})
     .on('update', () => bundle(wfy, true))
     .on('log', gutil.log);
   return bundle(wfy, true);
@@ -204,7 +205,12 @@ gulp.task('copy', function() {
   //   .pipe(gulp.dest(basePath.dest + 'serverObjects/'));
 });
 
-gulp.task('production', ['minify-images', 'minify-css', 'minify-js', 'copy']);
+//DELETE TASK
+gulp.task('delete', function() {
+  del(['dist/**', '!dist', '!dist/public', '!dist/public/index.html']);
+});
+
+gulp.task('production', ['minify-images', 'minify-css', 'minify-js', 'delete', 'copy']);
 
 
 

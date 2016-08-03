@@ -1,4 +1,16 @@
 <div id="content">
+	<!-- ### TEMPORARY ### -->
+	<div id="construction">
+		<div id="wrapper">
+			<div id="title">
+				Under Construction
+			</div>
+			<div>
+				Waiting for the release of Angular 2 <a target="_blank" href="https://github.com/angular/angular/milestone/64">RC5</a>
+			</div>
+		</div>
+	</div>
+	<!-- ### TEMPORARY ### -->
 	<div class="row">
 		<div class="small-12 columns">
 			<div id="intro">
@@ -12,21 +24,21 @@
 		</div>
 	</div>
 	<div id="contact_form" class="row">
-		<form>
+		<form #f="ngForm" [formGroup]="form" (ngSubmit)="onFormSubmit($event)">
 			<div class="small-12 medium-6 large-6 columns">
-				<label>Name*</label>
-				<input type="text" name="inquireName" required>
+				<label for="name">Name*</label>
+				<input type="text" [formControl]="name">
 			</div>
 			<div class="small-12 medium-6 large-6 columns">
-				<label>Email*</label>
-				<input type="email" name="inquireEmail" required>
+				<label for="email">Email*</label>
+				<input [formControl]="email">
 			</div>
 			<div class="small-12 columns">
-				<label>Message*</label>
-				<textarea id="message" name="message"></textarea>
+				<label for="message">Message*</label>
+				<textarea id="message" [formControl]="message"></textarea>
 			</div>
 			<div class="small-12 columns">
-				<button type="submit">Submit</button>
+				<button type="submit" [disabled]="!form.valid">Submit</button>
 			</div>
 		</form>
 	</div>

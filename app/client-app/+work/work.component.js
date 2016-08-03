@@ -50,7 +50,7 @@ export class Work {
 				url: 'https://github.com/wootencl',
 				delay: 1200,
 				description: "Frontend development is my current passion but I have \
-				experience in many different technologies. I believe my Github is a \
+				experience in many different technologies. I believe my Github profile is a \
 				good example of my breadth of work experience."
 			});
 	}

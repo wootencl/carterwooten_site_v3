@@ -1,1 +1,1 @@
-export * from './greeter/greeter.service';
+export * from './emailer/index';

@@ -21,12 +21,10 @@ import {
 import { Location } from '@angular/common';
 
 
-import {Greeter} from './shared/index';
 import {NavBar} from './+navbar/index';
 
 @Component({
   selector: 'app',
-  viewProviders: [Greeter],
   directives: [ROUTER_DIRECTIVES, NavBar],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
