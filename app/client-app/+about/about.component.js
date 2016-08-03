@@ -44,7 +44,7 @@ export class About {
 				iconUrl: 'images/fullstack.png',
 				delay: 900,
 				description: "I've had contracts where I've had to work with one technology \
-				or another, but as I've also had to build many of my project from the ground \
+				or another, but as I've also had to build many of my projects from the ground \
 				up I have experience with every layer of the development stack."
 			});
 		// Prototyping
@@ -63,7 +63,7 @@ export class About {
 				skillName: 'UI/UX Design',
 				iconUrl: 'images/uiux.jpg',
 				delay: 1500,
-				description: "Going along with my belief in the KISS principle \
+				description: "Going along with my belief in the KISS principles \
 				of development I think that at the heart of any great design \
 				is simplicity."
 			});

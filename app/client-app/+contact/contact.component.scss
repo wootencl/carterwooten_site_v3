@@ -1,7 +1,36 @@
+// TEMPORARY 
+#construction {
+	background: rgba(255,255,255,0.85);
+  position: absolute;
+  width: 100%;
+  top: 6em;
+  bottom: 8em;
+  #wrapper {
+  	text-align: center;
+  	#title {
+  		font-size: 1.75em;
+  	}
+  	a {
+	    text-decoration: none;
+	    color: #000;
+	    font-weight: 600;
+  	}
+  	font-family: 'Arvo', serif;
+  	margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+  }
+}	
+//
+
 .row {
 	max-width: 35em;
 }
 #content {
+	position: relative;
 	display: block;
 	padding-top: 6rem;
 	padding-bottom: 8em;
@@ -50,7 +79,6 @@
 	    text-align: center;
 	    background-color: #313131;
 	    color: #FFF;
-	    padding: 0.5em;
 	    &:hover {
 	    	background-color: #404040;
 	    }

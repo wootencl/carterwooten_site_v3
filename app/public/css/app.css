@@ -14,6 +14,10 @@ html, body, app {
 	:not(.home) > navbar {
 		background-color: #FFF;
 	}
+	/* CONTACT */
+	button {
+		padding: 1em 0em;
+	}
 }
 
 /* TABLETS */
@@ -24,6 +28,10 @@ html, body, app {
 	/* WORK */
 	#siteInfoWrapper {
     opacity:1;
+  }
+  /* CONTACT */
+  button {
+  	padding: 0.5em 0em;
   }
 }
 

@@ -29,10 +29,14 @@ export class Site {
 	@Input() description;
 	@Input() url;
 	@Input() delay;
-	@Input() clickable;
 
 	constructor() {
 		this.state = 'inactive';
+	}
+	checkUrl(e) {
+		if (this.url === undefined) {
+			e.preventDefault();
+		}
 	}
 	ngOnInit() {
 		this.fadeInState();
