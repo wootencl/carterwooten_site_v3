@@ -190,11 +190,8 @@ gulp.task('minify-js', function() {
     .pipe(gulp.dest(destPublic.scripts));
 });
 
-//COPY TASKS
+//COPY TASKS (SERVER FILES)
 gulp.task('copy', function() {
-  gulp.src(basePath.src + 'public/index.html')
-    .pipe(gulp.dest(basePath.dest + 'public/'));
-
   gulp.src(basePath.src + 'server.js')
     .pipe(gulp.dest(basePath.dest));
 
@@ -205,12 +202,19 @@ gulp.task('copy', function() {
   //   .pipe(gulp.dest(basePath.dest + 'serverObjects/'));
 });
 
-//DELETE TASK
-gulp.task('delete', function() {
+//FONT TASK
+// Fonts
+gulp.task('fonts', function() {
+  return gulp.src(['app/bower_components/font-awesome/fonts/fontawesome-webfont.*'])
+    .pipe(gulp.dest(basePath.dest + 'public/fonts/'));
+});
+
+//CLEAN TASK
+gulp.task('clean', function() {
   del(['dist/**', '!dist', '!dist/public', '!dist/public/index.html']);
 });
 
-gulp.task('production', ['minify-images', 'minify-css', 'minify-js', 'delete', 'copy']);
+gulp.task('production', ['minify-images', 'minify-css', 'minify-js', 'fonts', 'copy']);
 
 
 

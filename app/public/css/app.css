@@ -15,7 +15,7 @@ html, body, app {
 		background-color: #FFF;
 	}
 	/* CONTACT */
-	button {
+	#contactButton {
 		padding: 1em 0em;
 	}
 }
@@ -30,7 +30,7 @@ html, body, app {
     opacity:1;
   }
   /* CONTACT */
-  button {
+  #contactButton {
   	padding: 0.5em 0em;
   }
 }
