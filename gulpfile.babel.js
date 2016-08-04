@@ -181,6 +181,7 @@ gulp.task('minify-css', function() {
 gulp.task('minify-js', function() {
   return gulp.src([
       srcPublic.scripts + 'vendor/jquery.js', //jquery before b/c foundation dependency
+      basePath.src + 'bower_components/web-animations-js/web-animations.min.js',
       srcPublic.scripts + '**/*.js'
     ])
     .pipe(sourcemaps.init())
