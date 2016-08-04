@@ -1,0 +1,9 @@
+version: 0.0
+os: linux
+files:
+  - source: /dist
+    destination: /var/www/html/cw/dist
+  - source: /scripts
+    destination: /var/www/html/cw/scripts
+  - source: package.json
+    destination: /var/www/html/cw
