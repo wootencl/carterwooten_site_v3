@@ -16,7 +16,7 @@ export class Work {
 			{
 				title: 'Timesheet Web Application',
 				imageUrl: 'images/tsa.png',
-				url: 'http://tsademo.clwproductions.com/',
+				url: 'http://tsademo.carterwooten.com/',
 				delay: 300,
 				description: "One of my first web applications. It's purpose \
 				is to simplify timekeeping for my client, Elevation Healthcare, \
@@ -27,7 +27,7 @@ export class Work {
 			{
 				title: 'Personal Website Version 2',
 				imageUrl: 'images/cwV2.png',
-				url: 'http://clwproductions.com/',
+				url: 'http://cwv2.carterwooten.com/',
 				delay: 600,
 				description: "Most people like to hide their obsolete creations \
 				, but I think this second iteration of my website serves as a great\
