@@ -7,3 +7,16 @@ files:
     destination: /var/www/html/cw/scripts
   - source: package.json
     destination: /var/www/html/cw
+hooks:
+  BeforeInstall:
+    - location: scripts/beforeInstall.sh
+    timeout: 300
+    runas: root
+  AfterInstall: 
+    - location: scripts/afterInstall.sh
+    timeout: 300
+    runas: root
+  ApplicationStart:
+    - location: scripts/applicationStart.sh
+    timeout: root
+    runas: root
