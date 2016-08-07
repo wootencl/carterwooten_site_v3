@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd /var/www/html/cw
-npm install
+npm install -s --only=production
