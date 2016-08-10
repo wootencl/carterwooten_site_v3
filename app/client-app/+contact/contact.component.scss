@@ -1,93 +1,99 @@
-// TEMPORARY 
-#construction {
-	background: rgba(255,255,255,0.85);
-  position: absolute;
-  width: 100%;
-  top: 6em;
-  bottom: 8em;
-  #wrapper {
-  	text-align: center;
-  	#title {
-  		font-size: 1.75em;
-  	}
-  	a {
-	    text-decoration: none;
-	    color: #000;
-	    font-weight: 600;
-  	}
-  	font-family: 'Arvo', serif;
-  	margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
-  }
-}	
-//
-
-.row {
-	max-width: 35em;
-}
-#content {
-	position: relative;
+:host {
 	display: block;
-	padding-top: 6rem;
-	padding-bottom: 8em;
-	height: auto;
-	min-height: 100%;
-	#intro {
-		height: auto;
-		font-family: 'Arvo', serif;
-		#super {
-	    text-align: center;
-	    font-size: 2em;
-	    line-height: 1.5em;
-		}
-		#sub {
-	    margin-top: 0.5em;
-	    font-family: 'Arvo', serif;
-	    text-align: center;
-	    line-height: 1.5em;
-	    padding: 0em 2em;
-		}
-	}
-	#contact_form {
-		margin-top: 2em;
-		.columns {
-			padding-top: 2em;
-		}
-		label {
-			display: block;
-		}
-		input, textarea {
-			width: 100%;
-	    -webkit-box-shadow: inset 0 1px 4px #AAA;
-	    -moz-box-shadow: inset 0 1px 4px #AAA;
-	    box-shadow: inset 0 1px 4px #AAA;
-	    border: 1px solid #d6d6d6;
-	    padding-left: 7px;
-	    border-radius: 5px;
-	    font-size: 16px;
-		}
-		textarea {
-			resize: vertical;
-			min-height: 10em;
-		}
-		button {
-			width: 100%;
-	    text-align: center;
-	    background-color: #313131;
-	    color: #FFF;
-	    &:hover {
-	    	background-color: #404040;
-	    }
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	// TEMPORARY 
+	#construction {
+		background: rgba(255,255,255,0.85);
+	  position: absolute;
+	  width: 100%;
+	  top: 6em;
+	  bottom: 8em;
+	  #wrapper {
+	  	text-align: center;
+	  	#title {
+	  		font-size: 1.75em;
+	  	}
+	  	a {
+		    text-decoration: none;
+		    color: #000;
+		    font-weight: 600;
+	  	}
+	  	font-family: 'Arvo', serif;
+	  	margin: 0;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    margin-right: -50%;
+	    transform: translate(-50%, -50%)
+	  }
+	}	
+	//
 
-	    -webkit-transition: background-color 0.25s linear;
-			-moz-transition: background-color 0.25s linear;
-			-o-transition: background-color 0.25s linear;
-			-ms-transition: background-color 0.25s linear;
-			transition: background-color 0.25s linear;
+	.row {
+		max-width: 35em;
+	}
+	#content {
+		position: relative;
+		display: block;
+		padding-top: 6rem;
+		padding-bottom: 8em;
+		height: auto;
+		min-height: 100%;
+		#intro {
+			height: auto;
+			font-family: 'Arvo', serif;
+			#super {
+		    text-align: center;
+		    font-size: 2em;
+		    line-height: 1.5em;
+			}
+			#sub {
+		    margin-top: 0.5em;
+		    font-family: 'Arvo', serif;
+		    text-align: center;
+		    line-height: 1.5em;
+		    padding: 0em 2em;
+			}
+		}
+		#contact_form {
+			margin-top: 2em;
+			.columns {
+				padding-top: 2em;
+			}
+			label {
+				display: block;
+			}
+			input, textarea {
+				width: 100%;
+		    -webkit-box-shadow: inset 0 1px 4px #AAA;
+		    -moz-box-shadow: inset 0 1px 4px #AAA;
+		    box-shadow: inset 0 1px 4px #AAA;
+		    border: 1px solid #d6d6d6;
+		    padding-left: 7px;
+		    border-radius: 5px;
+		    font-size: 16px;
+			}
+			textarea {
+				resize: vertical;
+				min-height: 10em;
+			}
+			button {
+				width: 100%;
+		    text-align: center;
+		    background-color: #313131;
+		    color: #FFF;
+		    &:hover {
+		    	background-color: #404040;
+		    }
+
+		    -webkit-transition: background-color 0.25s linear;
+				-moz-transition: background-color 0.25s linear;
+				-o-transition: background-color 0.25s linear;
+				-ms-transition: background-color 0.25s linear;
+				transition: background-color 0.25s linear;
+			}
 		}
 	}
 }

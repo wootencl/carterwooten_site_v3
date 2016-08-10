@@ -4,15 +4,21 @@ html, body, app {
 	font-size: 1rem;
 	font-family: 'Open Sans', sans-serif;
 }
+:not(.home) > navbar {
+	background-color: #FFF;
+
+	transition: 500ms background-color linear;
+	-webkit-transition: 500ms background-color linear;
+	-moz-transition: 500ms background-color linear;
+	-ms-transition: 500ms background-color linear;
+	-o-transition: 500ms background-color linear;
+}
 
 /* ### MEDIA QUERIES ### */
 /* MOBILE */
 @media (min-width:320px) {
 	html, body, app {
 		font-size: 0.9em;
-	}
-	:not(.home) > navbar {
-		background-color: #FFF;
 	}
 	/* CONTACT */
 	#contactButton {
@@ -41,9 +47,9 @@ html, body, app {
 	#site #siteInfoWrapper {
 	  opacity: 0;
 
-	  -webkit-transition: opacity .3s ease;
-    -moz-transition: opacity .3s ease;
-    transition: opacity .3s ease;
+	  -webkit-transition: opacity .5s ease;
+    -moz-transition: opacity .5s ease;
+    transition: opacity .5s ease;
 	}
 	#site:hover #siteInfoWrapper {
 	  opacity: 1;

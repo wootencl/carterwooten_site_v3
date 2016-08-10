@@ -1,20 +1,25 @@
-.row {
-	max-width: 100% !important;
-}
-#content {
+:host {
 	display: block;
-	padding-top: 6rem;
-	padding-bottom: 8em;
-	height: auto;
-	min-height: 100%;
-	#intro {
+	position: absolute;
+	width: 100%;
+	.row {
+		max-width: 100% !important;
+	}
+	#content {
+		display: block;
+		padding-top: 6rem;
+		padding-bottom: 8em;
 		height: auto;
-		font-family: 'Arvo', serif;
-		padding-bottom: 2em;
-		#super {
-	    text-align: center;
-	    font-size: 2em;
-	    line-height: 1.5em;
+		min-height: 100%;
+		#intro {
+			height: auto;
+			font-family: 'Arvo', serif;
+			padding-bottom: 2em;
+			#super {
+		    text-align: center;
+		    font-size: 2em;
+		    line-height: 1.5em;
+			}
 		}
 	}
 }
