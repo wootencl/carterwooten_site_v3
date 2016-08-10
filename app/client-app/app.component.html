@@ -1,5 +1,5 @@
 <navbar (mobileNavToggle)="stateChange()"></navbar>
-<div @offScreenMenu="state" id="offScreenMenu">
+<div [@offScreenMenu]="state" id="offScreenMenu">
 	  <div><a [routerLink]="['/']" routerLinkActive="router-link-active" (click)="stateChange()">Home</a></div>
 	  <div><a [routerLink]="['/About']" routerLinkActive="router-link-active" (click)="stateChange()">About</a></div>
 	  <div><a [routerLink]="['/Work']" routerLinkActive="router-link-active" (click)="stateChange()">Work</a></div>

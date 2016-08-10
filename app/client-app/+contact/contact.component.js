@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+import { 
+	Component,
+	trigger,
+  state,
+  style,
+  transition,
+  animate } from '@angular/core';
 import {  
   FORM_DIRECTIVES,  
   REACTIVE_FORM_DIRECTIVES,  
@@ -15,7 +21,20 @@ import { EmailService } from '../shared/index'
   selector: 'contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
-  directives: [Footer, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES]
+  directives: [Footer, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES],
+  host : {
+    '[@routeAnimation]': 'true'
+  },
+  animations: [
+    trigger('routeAnimation', [
+      state('*', style({opacity: 1})),
+      transition('void => *', [
+        style({opacity: 0}),
+        animate('250ms 250ms ease-in')
+      ]),
+      transition('* => void', animate(250, style({opacity: 0})))
+    ])
+  ]
 })
 export class Contact {
 	constructor(emailService: EmailService) {

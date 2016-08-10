@@ -7,6 +7,9 @@ import {
   animate } from '@angular/core';
 
 @Component({
+  host : {
+    '[@routeAnimation]': 'true'
+  },
   selector: 'home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
@@ -15,11 +18,16 @@ import {
       state('in', style({opacity: 1})),
       transition('void => *', [
         style({opacity: 0}),
-        animate('250ms ease-in-out')
-      ]),
-      transition('* => void', [
-        animate('250ms ease-in-out', style({opacity: 0}))
+        animate('250ms 500ms ease-in-out')
       ])
+    ]),
+    trigger('routeAnimation', [
+      state('*', style({opacity: 1})),
+      transition('void => *', [
+        style({opacity: 0}),
+        animate('250ms 250ms ease-in')
+      ]),
+      transition('* => void', animate(250, style({opacity: 0})))
     ])
   ]
 })
