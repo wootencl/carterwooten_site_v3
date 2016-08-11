@@ -5,14 +5,11 @@ import {
   style,
   transition,
   animate } from '@angular/core';
-import { Footer } from '../+footer/index';
-import { Skill } from '../+skill/index';
 
 @Component({
   selector: 'about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss'],
-  directives: [Footer, Skill]
+  styleUrls: ['./about.component.scss']
 })
 export class About {
 	constructor() {

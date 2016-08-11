@@ -2,12 +2,11 @@ import 'babel-polyfill';
 import 'zone.js/dist/zone';
 import {provideRouter} from '@angular/router';
 import { disableDeprecatedForms, provideForms } from '@angular/forms';
-import {bootstrap} from '@angular/platform-browser-dynamic';
-import {HTTP_PROVIDERS} from '@angular/http';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app.module'
-import { App } from './app.component';
-import { APP_ROUTES } from './app.routes'
+// import { App } from './app.component';
+// import { APP_ROUTES } from './app.routes';
 
 // bootstrap(App, [
 // 	provideForms(),
