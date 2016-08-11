@@ -186,7 +186,7 @@ gulp.task('minify-js', function() {
     ])
     .pipe(sourcemaps.init())
       .pipe(concat('bundle.min.js'))
-      .pipe(uglify())
+      .pipe(uglify({ mangle: false }))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(destPublic.scripts));
 });
