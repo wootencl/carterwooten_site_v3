@@ -1,9 +1,18 @@
 'use strict';
 
+var contactMessage = require('./serverObjects/contactMessage');
+var transporter = require('./serverConfig/emailSetup');
+
 module.exports = function(app) {
 	app.post('/email', function(req, res) {
-		console.log('Howdy!');
-		res.status(200).send({ data: { message: 'hello' }});
+		var message = contactMessage(req.body);
+    transporter.sendMail(message, function(error, info) {
+      if (error) {
+        return res.status(500).send({ message: 'Internal server error. Please try again.'});
+      } else {
+        return res.status(200).send({message: 'Successful token creation'});
+      }
+    });
 	});
 
   app.get('/*', function (req, res) {

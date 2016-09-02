@@ -193,6 +193,12 @@ gulp.task('minify-js', function() {
 
 //COPY TASKS (SERVER FILES)
 gulp.task('copy', function() {
+  gulp.src(basePath.src + 'serverConfig/**')
+    .pipe(gulp.dest(basePath.dest + 'serverConfig'));
+
+  gulp.src(basePath.src + 'serverObjects/**')
+    .pipe(gulp.dest(basePath.dest + 'serverObjects'));
+    
   gulp.src(basePath.src + 'server.js')
     .pipe(gulp.dest(basePath.dest));
 
