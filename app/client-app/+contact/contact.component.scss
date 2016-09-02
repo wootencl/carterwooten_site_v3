@@ -3,33 +3,6 @@
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	// TEMPORARY 
-	#construction {
-		background: rgba(255,255,255,0.85);
-	  position: absolute;
-	  width: 100%;
-	  top: 6em;
-	  bottom: 8em;
-	  #wrapper {
-	  	text-align: center;
-	  	#title {
-	  		font-size: 1.75em;
-	  	}
-	  	a {
-		    text-decoration: none;
-		    color: #000;
-		    font-weight: 600;
-	  	}
-	  	font-family: 'Arvo', serif;
-	  	margin: 0;
-	    position: absolute;
-	    top: 50%;
-	    left: 50%;
-	    margin-right: -50%;
-	    transform: translate(-50%, -50%)
-	  }
-	}	
-	//
 
 	.row {
 		max-width: 35em;
@@ -59,6 +32,7 @@
 		}
 		#contact_form {
 			margin-top: 2em;
+			position: relative;
 			.columns {
 				padding-top: 2em;
 			}
@@ -74,6 +48,12 @@
 		    padding-left: 7px;
 		    border-radius: 5px;
 		    font-size: 16px;
+
+		    -webkit-transition: all 0.30s ease-in-out;
+			  -moz-transition: all 0.30s ease-in-out;
+			  -ms-transition: all 0.30s ease-in-out;
+			  -o-transition: all 0.30s ease-in-out;
+			  outline: none;
 			}
 			textarea {
 				resize: vertical;
@@ -93,6 +73,44 @@
 				-o-transition: background-color 0.25s linear;
 				-ms-transition: background-color 0.25s linear;
 				transition: background-color 0.25s linear;
+			}
+			.formTouched.ng-invalid {
+				box-shadow: 0 0 5px rgb(255, 138, 138);
+    		border: 1px solid rgba(255, 138, 138, 1);
+			}
+			.formTouched.ng-valid {
+				box-shadow: 0 0 5px rgb(149, 239, 115);
+    		border: 1px solid rgba(149, 239, 115, 1);
+			}
+			.hidden {
+				opacity: 0;
+				z-index: -5;
+			}
+			.notHidden {
+				opacity: 1;
+		    z-index: 5;
+			}
+			#serverResponseMessageOuter {
+				height: 100%;
+		    width: 100%;
+		    position: absolute;
+		    background-color: #FFF;
+		    padding: 5em;
+
+				transition: all .3s ease-in-out;
+				-moz-transition: all .3s ease-in-out;
+				-webkit-transition: all .3s ease-in-out;
+				#serverResponseMessageInner {
+					border: 1px solid black;
+					border-radius: 5px;
+					height: 100%;
+					width: 100%;
+					padding: 3em 1em;
+					text-align: center;
+					#serverText {
+						margin-bottom: 2em;
+					}
+				}
 			}
 		}
 	}

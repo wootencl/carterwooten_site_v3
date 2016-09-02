@@ -1,12 +1,11 @@
 {
-  "name": "angular2_foundation_skeleton",
+  "name": "carer_wooten_site_v3",
   "version": "1.0.0",
-  "description": "A combination of Angular and the grid from foundation framework.",
+  "description": "My personal portfolio website.",
   "main": "js/app.js",
   "scripts": {
-    "development": "gulp development",
-    "production": "gulp production",
-    "unit": "karma start --single-run"
+    "dev": "NODE_ENV=development gulp development",
+    "prod": "NODE_ENV=production gulp production"
   },
   "author": "Carter Wooten",
   "license": "MIT",
@@ -62,7 +61,7 @@
     "@angular/common": "2.0.0-rc.5",
     "@angular/compiler": "2.0.0-rc.5",
     "@angular/core": "2.0.0-rc.5",
-    "@angular/forms": "0.2.0",
+    "@angular/forms": "0.3.0",
     "@angular/http": "2.0.0-rc.5",
     "@angular/platform-browser": "2.0.0-rc.5",
     "@angular/platform-browser-dynamic": "2.0.0-rc.5",
@@ -70,6 +69,7 @@
     "angular2-universal": "~0.101.8",
     "babel-polyfill": "^6.8.0",
     "body-parser": "^1.15.1",
+    "dotenv": "^2.0.0",
     "express": "^4.13.4",
     "forever": "^0.15.2",
     "nodemailer": "^2.3.0",

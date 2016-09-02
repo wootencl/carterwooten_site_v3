@@ -4,7 +4,10 @@ import {
   state,
   style,
   transition,
-  animate } from '@angular/core';
+  animate,
+  OnInit
+} from '@angular/core';
+
 import {  
   FORM_DIRECTIVES,  
   REACTIVE_FORM_DIRECTIVES,  
@@ -16,8 +19,9 @@ import {
 
 import { Footer } from '../+footer/index';
 import { EmailService } from '../shared/index'
+import { ValidationService } from '../shared/index';
 @Component({
-	providers: [EmailService],
+	providers: [EmailService, ValidationService],
   selector: 'contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
@@ -36,23 +40,42 @@ import { EmailService } from '../shared/index'
     ])
   ]
 })
-export class Contact {
-	constructor(emailService: EmailService) {
+export class Contact implements OnInit {
+	constructor(emailService: EmailService, formBuilder: FormBuilder, validationService: ValidationService) {
 		this.emailService = emailService;
-		this.form = new FormGroup({
-		  name: new FormControl('', Validators.required),
-		  email: new FormControl('', Validators.required),
-		  message: new FormControl('', Validators.required)
-		});
-
-		this.name = this.form.controls['name'];
-		this.email = this.form.controls['email'];
-		this.message = this.form.controls['message'];
+    this.formBuilder = formBuilder;
+    this.validationService = validationService;
+    this.formTouched = false;
+    this.serverResponseHidden = true;
+    this.serverResponseNotHidden = false;
 	}
+  ngOnInit() {
+    this.model = {};
+    this.form = this.formBuilder.group({
+      name: [this.model.name, Validators.required],
+      email: [this.model.email, [Validators.required, this.validationService.emailValidator]],
+      message: [this.model.message, Validators.required]
+    });
+
+    this.form.valueChanges.subscribe((data) => {
+      if (!this.formTouched) {
+        this.formTouched = true;
+      }
+    });
+  }
 	onFormSubmit() {
 		this.emailService.sendEmail(this.form.value)
 			.subscribe(
-				res => console.log('success'),
+				res => {
+          this.form.reset();
+          this.formTouched = false;
+          this.serverResponseHidden = false;
+          this.serverResponseNotHidden = true;
+        },
 				err => console.log('error'));
 	};
+  serverMessageOked() {
+    this.serverResponseHidden = true;
+    this.serverResponseNotHidden = false;
+  }
 }
