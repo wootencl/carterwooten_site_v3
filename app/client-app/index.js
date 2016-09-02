@@ -4,7 +4,11 @@ import {provideRouter} from '@angular/router';
 import { provideForms } from '@angular/forms';
 import {bootstrap} from '@angular/platform-browser-dynamic';
 import {HTTP_PROVIDERS} from '@angular/http';
-//import {ROUTER_PROVIDERS} from '@angular/router';
+import {enableProdMode} from '@angular/core';
+
+if (process.env.NODE_ENV === 'production') {
+	enableProdMode();
+}
 
 import {App} from './app.component';
 import { APP_ROUTES } from './app.routes'

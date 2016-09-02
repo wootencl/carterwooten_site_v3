@@ -21,7 +21,7 @@ html, body, app {
 		font-size: 0.9em;
 	}
 	/* CONTACT */
-	#contactButton {
+	#contactButton, #serverMessageButton {
 		padding: 1em 0em;
 	}
 }
@@ -36,7 +36,7 @@ html, body, app {
     opacity:1;
   }
   /* CONTACT */
-  #contactButton {
+  #contactButton, #serverMessageButton {
   	padding: 0.5em 0em;
   }
 }

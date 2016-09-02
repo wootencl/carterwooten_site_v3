@@ -1,16 +1,4 @@
 <div id="content">
-	<!-- ### TEMPORARY ### -->
-	<div id="construction">
-		<div id="wrapper">
-			<div id="title">
-				Under Construction
-			</div>
-			<div>
-				Waiting for the release of Angular 2 <a target="_blank" href="https://github.com/angular/angular/milestone/64">RC5</a>
-			</div>
-		</div>
-	</div>
-	<!-- ### TEMPORARY ### -->
 	<div class="row">
 		<div class="small-12 columns">
 			<div id="intro">
@@ -24,23 +12,31 @@
 		</div>
 	</div>
 	<div id="contact_form" class="row">
-		<form #f="ngForm" [formGroup]="form" (ngSubmit)="onFormSubmit($event)">
+		<form [formGroup]="form" (ngSubmit)="onFormSubmit()">
 			<div class="small-12 medium-6 large-6 columns">
 				<label for="name">Name*</label>
-				<input type="text" [formControl]="name">
+				<input [ngClass]="{formTouched: formTouched}" type="text" formControlName="name">
 			</div>
 			<div class="small-12 medium-6 large-6 columns">
 				<label for="email">Email*</label>
-				<input [formControl]="email">
+				<input [ngClass]="{formTouched: formTouched}" formControlName="email">
 			</div>
 			<div class="small-12 columns">
 				<label for="message">Message*</label>
-				<textarea id="message" [formControl]="message"></textarea>
+				<textarea [ngClass]="{formTouched: formTouched}" id="message" formControlName="message"></textarea>
 			</div>
 			<div class="small-12 columns">
 				<button id="contactButton" type="submit" [disabled]="!form.valid">Submit</button>
 			</div>
 		</form>
+		<div [ngClass]="{hidden: serverResponseHidden, notHidden: serverResponseNotHidden}" id="serverResponseMessageOuter">
+			<div id="serverResponseMessageInner">
+				<div id="serverText">
+					Your email has been sent successfully. Thank you for your interest!
+				</div>
+				<button id="serverMessageButton" (click)="serverMessageOked()">Ok</button>
+			</div>
+		</div>
 	</div>
 </div>
 <footer></footer>

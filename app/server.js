@@ -1,6 +1,9 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 3000;
+
+app.use(bodyParser.json());
 
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use(express.static(__dirname + '/public'));

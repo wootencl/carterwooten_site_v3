@@ -1,4 +1,4 @@
-import 'nodemailer';
+var nodemailer = require('nodemailer');
 
 module.exports = nodemailer.createTransport({
   service: 'Mailgun',
