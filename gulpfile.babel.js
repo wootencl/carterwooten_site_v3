@@ -22,6 +22,7 @@ import uglify from 'gulp-uglify';
 import ng2Inlinify from './ng2Inlinify';
 import sass from 'gulp-sass';
 import del from 'del';
+import envify from 'envify/custom';
 
 //Project Paths:
 var basePath = {
@@ -104,7 +105,10 @@ gulp.task('sass', function() {
 gulp.task('angular-build', function() {
   const brfy = browserify(basePath.src + 'client-app/index.js', { debug: true })
     .transform(babelify)
-    .transform(ng2Inlinify);
+    .transform(ng2Inlinify)
+    .transform(envify({
+      NODE_ENV: 'production'
+    }));
   return bundle(brfy, false);
 });
 
@@ -204,9 +208,6 @@ gulp.task('copy', function() {
 
   gulp.src(basePath.src + 'routes.js')
     .pipe(gulp.dest(basePath.dest));
-
-  // gulp.src(basePath.src + 'serverObjects/*.js')
-  //   .pipe(gulp.dest(basePath.dest + 'serverObjects/'));
 });
 
 //FONT TASK
