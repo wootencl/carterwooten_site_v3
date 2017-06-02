@@ -46,6 +46,7 @@ import {NavBar} from './+navbar/index';
 export class App implements OnInit, OnDestroy {
   @ViewChild(NavBar) navBar = NavBar;
   @HostBinding('class.home') isHome = false;
+  @HostBinding('class.notHome') isNotHome = false;
   @HostBinding('class.mobileNavOpen') mobileNavOpen = false;
 
   constructor(router: Router, route: ActivatedRoute) {
@@ -57,6 +58,7 @@ export class App implements OnInit, OnDestroy {
     this.sub = this.router.events.subscribe(e => {
       if (e instanceof NavigationEnd) {
         this.isHome = e.url === '/';
+        this.isNotHome = !this.isHome;
       }
     });
   }
