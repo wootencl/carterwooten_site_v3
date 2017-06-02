@@ -1,10 +1,19 @@
+body {
+  background-color: #000;
+}
+
 html, body, app {
 	height: 100%;
 	display: block;
 	font-size: 1rem;
 	font-family: 'Open Sans', sans-serif;
 }
-:not(.home) > navbar {
+
+.home > navbar {
+  background-color: rgba(0, 0, 0, 0.0);
+}
+
+.notHome > navbar {
 	background-color: #FFF;
 
 	transition: 500ms background-color linear;
@@ -12,6 +21,31 @@ html, body, app {
 	-moz-transition: 500ms background-color linear;
 	-ms-transition: 500ms background-color linear;
 	-o-transition: 500ms background-color linear;
+}
+
+.loadingImg {
+  text-align: center;
+  margin-top: 24em;
+}
+
+.loadingImg img {
+  height: 50px;
+}
+
+app {
+  transition: 500ms background-color linear;
+  -webkit-transition: 500ms background-color linear;
+  -moz-transition: 500ms background-color linear;
+  -ms-transition: 500ms background-color linear;
+  -o-transition: 500ms background-color linear;
+}
+
+app.home {
+  background-color: #000;
+}
+
+app.notHome {
+  background-color: #FFF;
 }
 
 /* ### MEDIA QUERIES ### */
