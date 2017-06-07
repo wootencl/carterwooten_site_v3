@@ -1,5 +1,5 @@
 body {
-  background-color: #000;
+  /*background-color: #000 !important;*/
 }
 
 html, body, app {
@@ -30,22 +30,6 @@ html, body, app {
 
 .loadingImg img {
   height: 50px;
-}
-
-app {
-  transition: 500ms background-color linear;
-  -webkit-transition: 500ms background-color linear;
-  -moz-transition: 500ms background-color linear;
-  -ms-transition: 500ms background-color linear;
-  -o-transition: 500ms background-color linear;
-}
-
-app.home {
-  background-color: #000;
-}
-
-app.notHome {
-  background-color: #FFF;
 }
 
 /* ### MEDIA QUERIES ### */

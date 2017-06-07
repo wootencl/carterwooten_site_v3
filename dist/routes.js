@@ -8,6 +8,7 @@ module.exports = function(app) {
 		var message = contactMessage(req.body);
     transporter.sendMail(message, function(error, info) {
       if (error) {
+        console.log(error);
         return res.status(500).send({ message: 'Internal server error. Please try again.'});
       } else {
         return res.status(200).send({message: 'Successful token creation'});
