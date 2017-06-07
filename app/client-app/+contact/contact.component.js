@@ -48,6 +48,7 @@ export class Contact implements OnInit {
     this.formTouched = false;
     this.serverResponseHidden = true;
     this.serverResponseNotHidden = false;
+    this.submitIsLoading = false;
 	}
   ngOnInit() {
     this.model = {};
@@ -64,15 +65,20 @@ export class Contact implements OnInit {
     });
   }
 	onFormSubmit() {
+    this.submitIsLoading = true;
 		this.emailService.sendEmail(this.form.value)
 			.subscribe(
 				res => {
+          this.submitIsLoading = false;
           this.form.reset();
           this.formTouched = false;
           this.serverResponseHidden = false;
           this.serverResponseNotHidden = true;
         },
-				err => console.log('error'));
+				err => {
+          // TODO Error Handling
+          this.submitIsLoading = false;
+        });
 	};
   serverMessageOked() {
     this.serverResponseHidden = true;

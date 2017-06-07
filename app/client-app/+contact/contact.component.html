@@ -26,7 +26,14 @@
 				<textarea [ngClass]="{formTouched: formTouched}" id="message" formControlName="message"></textarea>
 			</div>
 			<div class="small-12 columns">
-				<button id="contactButton" type="submit" [disabled]="!form.valid">Submit</button>
+				<button id="contactButton" type="submit" [disabled]="!form.valid">
+					<span *ngIf="!submitIsLoading">
+						Submit
+					</span>
+					<span *ngIf="submitIsLoading">
+						<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+					</span>
+				</button>
 			</div>
 		</form>
 		<div [ngClass]="{hidden: serverResponseHidden, notHidden: serverResponseNotHidden}" id="serverResponseMessageOuter">
