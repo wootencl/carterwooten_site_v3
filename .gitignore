@@ -4,4 +4,3 @@ app/public/js/bundle.js
 app/public/js/vendor/
 .DS_Store
 app/serverConfig/*
-dist/serverConfig/*
