@@ -1,5 +1,7 @@
 'use strict';
 
+var exec = require('child_process').exec;
+
 import gulp from 'gulp';
 import jshint from 'gulp-jshint';
 import gutil from 'gulp-util';
@@ -22,6 +24,7 @@ import uglify from 'gulp-uglify';
 import ng2Inlinify from './ng2Inlinify';
 import sass from 'gulp-sass';
 import del from 'del';
+
 
 //Project Paths:
 var basePath = {
@@ -145,14 +148,19 @@ gulp.task('watch', function() {
 gulp.task('server', function() {
   livereload.listen();
 
-  nodemon({
-    script: basePath.src + 'server.js',
-    ext: 'js',
-    ignore: srcPublic.scripts
-  }).on('readable', function(){
-    gulp.src(basePath.src + 'server.js')
-      .pipe(livereload.reload());
-  });
+  exec("aws ssm get-parameters --region us-east-1 --names MAILGUN_PASSWORD --with-decryption --query Parameters[0].Value", (error, mg_pass, stderr) => {
+    nodemon({
+      script: basePath.src + 'server.js',
+      ext: 'js',
+      ignore: srcPublic.scripts,
+      env: {
+        "MAILGUN_PASSWORD": mg_pass
+      }
+    }).on('readable', function(){
+      gulp.src(basePath.src + 'server.js')
+        .pipe(livereload.reload());
+    });
+  })
 });
 
 gulp.task('development', ['server', 'watch', 'angular-watch']);
