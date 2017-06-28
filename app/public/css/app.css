@@ -23,6 +23,23 @@ html, body, app {
 	-o-transition: 500ms background-color linear;
 }
 
+app:empty + .loading {
+    opacity: 1;
+    z-index: 100;
+}
+
+.loading {
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #FFF;
+  z-index: -1;
+}
+
 .loadingImg {
   text-align: center;
   margin-top: 24em;
